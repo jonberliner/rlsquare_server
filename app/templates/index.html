@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Obey the square</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    </head>
+    <body>
+        <time id="view-dur"></time>
+        <button class="bored">next</button>
+        <script type="text/javascript">
+            var start;
+
+            function nextRound(view_time){
+                $.post('/next', {view_time:view_time}, function(data){
+                    start = Date.now();
+                    $('#view-dur').html(view_time);
+                });
+            }
+
+            $(document).ready(function(){
+                    start = Date.now();
+                    $(".bored").click(function(){
+                        nextRound(Date.now() - start);
+                    });
+            });
+        </script>
+    </body>
+</html>

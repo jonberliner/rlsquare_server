@@ -1,0 +1,4 @@
+-e git://github.com/jonberliner/rlsquare_logic#egg=rlsquare_logic
+Flask==0.10.1
+Flask-SQLAlchemy==2.0
+SQLAlchemy==0.9.8
