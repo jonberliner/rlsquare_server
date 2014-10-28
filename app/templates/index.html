@@ -10,9 +10,14 @@
             var start;
 
             function nextRound(view_time){
-                $.post('/next', {view_time:view_time}, function(data){
+                $.ajax('/next', {
+                  data: JSON.stringify({view_time:view_time}),
+                  contentType: 'application/json',
+                  type: 'POST',
+                  success: function(data){
                     start = Date.now();
                     $('#view-dur').html(view_time);
+                  }
                 });
             }
 
